@@ -19,6 +19,7 @@ class Doctor(Base):
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String(100), index=True)
     especialidad = Column(String(100))
+    telefono = Column(String(100))
 
 
 class Cita(Base):
