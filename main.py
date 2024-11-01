@@ -23,13 +23,14 @@ class PacienteCrear(BaseModel):
     nombre: str
     edad: int
     genero: str
-    diagnostico: str
+    fecha_ingreso: str
 
 
 class DoctorCrear(BaseModel):
     nombre: str
     especialidad: str
     telefono: str
+    
 
 
 class CitaCrear(BaseModel):
@@ -40,7 +41,7 @@ class CitaCrear(BaseModel):
 
 @app.post("/pacientes/")
 def crear_paciente(paciente: PacienteCrear, db: Session = Depends(get_db)):
-    db_paciente = models.Paciente(nombre=paciente.nombre, edad=paciente.edad, genero=paciente.genero, diagnostico=paciente.diagnostico)
+    db_paciente = models.Paciente(nombre=paciente.nombre, edad=paciente.edad, genero=paciente.genero, fehca_ingreso = paciente.fecha_ingreso)
     db.add(db_paciente)
     db.commit()
     db.refresh(db_paciente)
@@ -55,7 +56,7 @@ def leer_pacientes(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)
 
 @app.post("/doctores/")
 def crear_doctor(doctor: DoctorCrear, db: Session = Depends(get_db)):
-    db_doctor = models.Doctor(nombre=doctor.nombre, especialidad=doctor.especialidad)
+    db_doctor = models.Doctor(nombre=doctor.nombre, especialidad=doctor.especialidad, telefono=doctor.telefono)
     db.add(db_doctor)
     db.commit()
     db.refresh(db_doctor)

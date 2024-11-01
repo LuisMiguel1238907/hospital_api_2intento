@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, VARCHAR
 from sqlalchemy.orm import relationship
 from database import Base
 
@@ -10,7 +10,7 @@ class Paciente(Base):
     nombre = Column(String(100), index=True)
     edad = Column(Integer)
     genero = Column(String(10))
-    diagnostico = Column(String(250))
+    fecha_ingreso = Column(String(250))
 
 
 class Doctor(Base):
@@ -19,7 +19,7 @@ class Doctor(Base):
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String(100), index=True)
     especialidad = Column(String(100))
-    telefono = Column(String(100))
+    telefono = Column(VARCHAR(100))
 
 
 class Cita(Base):
