@@ -29,6 +29,7 @@ class PacienteCrear(BaseModel):
 class DoctorCrear(BaseModel):
     nombre: str
     especialidad: str
+    telefono: str
 
 
 class CitaCrear(BaseModel):
