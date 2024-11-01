@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, VARCHAR,Date
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, VARCHAR, Date
 from sqlalchemy.orm import relationship
 from database import Base
 
@@ -32,3 +32,15 @@ class Cita(Base):
 
     paciente = relationship("Paciente")
     doctor = relationship("Doctor")
+
+
+class Citas(Base):
+    __tablename__ = "citas"
+    id = Column(Integer, primary_key=True, index=True)
+    id_paciente = Column(Integer, ForeignKey("pacientes.id"))
+    id_doctor = Column(Integer, ForeignKey("doctores.id"))
+    fecha_hora = Column(Date)
+    motivo = Column(VARCHAR(100))
+    
+
+
