@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 from database import Base
 
-# Modelo de Paciente
+
 class Paciente(Base):
     __tablename__ = "pacientes"
 
@@ -12,7 +12,7 @@ class Paciente(Base):
     genero = Column(String(10))
     diagnostico = Column(String(250))
 
-# Modelo de Doctor
+
 class Doctor(Base):
     __tablename__ = "doctores"
 
@@ -20,7 +20,7 @@ class Doctor(Base):
     nombre = Column(String(100), index=True)
     especialidad = Column(String(100))
 
-# Modelo de Cita Médica
+
 class Cita(Base):
     __tablename__ = "citas_medicas"
 
