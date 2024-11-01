@@ -23,7 +23,7 @@ class PacienteCrear(BaseModel):
     nombre: str
     edad: int
     genero: str
-    fecha_ingreso: str
+
 
 
 class DoctorCrear(BaseModel):
@@ -41,7 +41,7 @@ class CitaCrear(BaseModel):
 
 @app.post("/pacientes/")
 def crear_paciente(paciente: PacienteCrear, db: Session = Depends(get_db)):
-    db_paciente = models.Paciente(nombre=paciente.nombre, edad=paciente.edad, genero=paciente.genero, fehca_ingreso = paciente.fecha_ingreso)
+    db_paciente = models.Paciente(nombre=paciente.nombre, edad=paciente.edad, genero=paciente.genero)
     db.add(db_paciente)
     db.commit()
     db.refresh(db_paciente)

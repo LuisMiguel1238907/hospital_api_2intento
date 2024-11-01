@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, VARCHAR
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, VARCHAR,Date
 from sqlalchemy.orm import relationship
 from database import Base
 
@@ -10,7 +10,7 @@ class Paciente(Base):
     nombre = Column(String(100), index=True)
     edad = Column(Integer)
     genero = Column(String(10))
-    fecha_ingreso = Column(String(250))
+    
 
 
 class Doctor(Base):
