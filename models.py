@@ -13,6 +13,10 @@ class Paciente(Base):
     
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b1b442f031814a5a31b364057507db742fedb523
 class Doctor(Base):
     __tablename__ = "doctores"
 
@@ -22,6 +26,10 @@ class Doctor(Base):
     telefono = Column(VARCHAR(100))
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b1b442f031814a5a31b364057507db742fedb523
 class Cita(Base):
     __tablename__ = "citas_medicas"
 
