@@ -26,33 +26,18 @@ class PacienteCrear(BaseModel):
     genero: str
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b1b442f031814a5a31b364057507db742fedb523
 class DoctorCrear(BaseModel):
     nombre: str
     especialidad: str
     telefono: str
     
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> b1b442f031814a5a31b364057507db742fedb523
 class CitaCrear(BaseModel):
     fecha: datetime
     paciente_id: int
     doctor_id: int
 
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> b1b442f031814a5a31b364057507db742fedb523
 @app.post("/pacientes/")
 def crear_paciente(paciente: PacienteCrear, db: Session = Depends(get_db)):
     db_paciente = models.Paciente(nombre=paciente.nombre, edad=paciente.edad, genero=paciente.genero)
@@ -67,7 +52,7 @@ def leer_pacientes(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)
     pacientes = db.query(models.Paciente).offset(skip).limit(limit).all()
     return pacientes
 
-<<<<<<< HEAD
+
 @app.get("/pacientes/edad/max/")
 def edad_maxima(db: Session = Depends(get_db)):
     max_edad = db.query(func.max(models.Paciente.edad)).scalar()
@@ -101,9 +86,6 @@ def contar_grupo_etario(db: Session = Depends(get_db)):
         "tercera_edad": tercera_edad
     }
 
-=======
->>>>>>> b1b442f031814a5a31b364057507db742fedb523
-
 @app.post("/doctores/")
 def crear_doctor(doctor: DoctorCrear, db: Session = Depends(get_db)):
     db_doctor = models.Doctor(nombre=doctor.nombre, especialidad=doctor.especialidad, telefono=doctor.telefono)
@@ -127,10 +109,8 @@ def crear_cita(cita: CitaCrear, db: Session = Depends(get_db)):
     db.refresh(db_cita)
     return db_cita
 
-<<<<<<< HEAD
 
-=======
->>>>>>> b1b442f031814a5a31b364057507db742fedb523
+
 @app.get("/citas/")
 def leer_citas(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     citas = db.query(models.Cita).offset(skip).limit(limit).all()
